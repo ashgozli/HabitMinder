@@ -20,12 +20,9 @@ By contributing to this project, GDSC members can gain practical experience with
 
 ## Installation
 1. Clone the repository
-<git clone https://github.com/{username}/{repo-name}.git>
 2. Install dependencies
-cd {repo-name}
-npm install
 3. Start the app
-npm start
+
 4. Open the app in a web browser or mobile device using the Expo app
 ## Technologies Used
 - React Native

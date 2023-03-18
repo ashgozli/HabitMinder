@@ -3,8 +3,8 @@ import React from "react";
 
 const Overview = () => {
   return (
-    <View>
-      <Text>Overview</Text>
+    <View className="flex-1  justify-center items-center bg-black">
+      <Text className="text-white flex text-2xl">Overview</Text>
     </View>
   );
 };

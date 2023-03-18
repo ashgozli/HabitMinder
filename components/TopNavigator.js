@@ -11,7 +11,8 @@ const TopNavigator = () => {
       <Button
         type="clear"
         icon={<MaterialCommunityIcons name="cog" color={"white"} size={40} />}
-        onPress={() => navigation.navigate("Settings")}
+        // Step 1. Navigate to Settings screen
+        onPress={() => {}}
       />
       <Avatar
         rounded
@@ -20,7 +21,8 @@ const TopNavigator = () => {
         source={{
           uri: "https://ichef.bbci.co.uk/news/976/cpsprodpb/B7F6/production/_128049074_muskgetty.png",
         }}
-        onPress={() => navigation.navigate("Profile")}
+        // Step 2. Navigate to Profile screen
+        onPress={() => {}}
       />
     </View>
   );

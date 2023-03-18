@@ -7,24 +7,22 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import TopNavigator from "./TopNavigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+// create a BottomTabNavigator
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomNavigator = () => {
   return (
-    // <SafeAreaProvider>
     <>
       <TopNavigator />
       <Tab.Navigator
         labeled={false}
         initialRouteName="HomeScreen"
-        // activeColor="#f0edf6"
         inactiveColor="#ffffff"
         barStyle={{ backgroundColor: "#000000" }}
-        // screenOptions={{ headerShown: false }}
       >
         <Tab.Screen
           name="HomeScreen"
-          component={HomeScreen}
+          // Step 1. Render the HomeScreen component
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ color }) => (
@@ -34,7 +32,7 @@ const BottomNavigator = () => {
         />
         <Tab.Screen
           name="Add"
-          component={AddHabits}
+          // Step 2. Render the AddHabits component
           options={{
             tabBarLabel: "Add Habit",
             tabBarIcon: ({ color }) => (
@@ -48,7 +46,7 @@ const BottomNavigator = () => {
         />
         <Tab.Screen
           name="Habits"
-          component={Habits}
+          // Step 3. Render the Habits component
           options={{
             tabBarLabel: "Habits",
             tabBarIcon: ({ color }) => (
@@ -61,7 +59,6 @@ const BottomNavigator = () => {
           }}
         />
       </Tab.Navigator>
-      {/* </SafeAreaProvider> */}
     </>
   );
 };

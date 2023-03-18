@@ -10,7 +10,8 @@ const HomeScreen = () => {
     name: "Elon Musk",
   };
 
-  const [key, setKey] = useState("home");
+  // use the useState hook in React to create a new 
+  // state variable named key with an initial value of "home".
 
   return (
     <View className="flex-1 bg-black">

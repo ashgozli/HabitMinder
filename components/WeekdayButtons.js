@@ -1,21 +1,47 @@
 import React, { useState } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
+import { CheckBox } from "react-native-elements";
 
 const WeekdayButtons = ({ days, setDays }) => {
-  // Step 1: Implement handleItemSelect function
-  // The function should check if the selected day is in the 'days' array
-  // If it is, remove it from the array
-  // If it's not, add it to the array
+  const handleItemSelect = (item) => {
+    if (days.includes(item)) {
+      setDays(days.filter((i) => i !== item));
+    } else {
+      setDays([...days, item]);
+    }
+    console.log(days);
+  };
+  const daysArray = [
+    { label: "Mon", value: "Mon" },
+    { label: "Tue", value: "Tue" },
+    { label: "Wed", value: "Wed" },
+    { label: "Thu", value: "Thu" },
+    { label: "Fri", value: "Fri" },
+    { label: "Sat", value: "Sat" },
+    { label: "Sun", value: "Sun" },
+  ];
 
-  // Step 2: Create an array called 'daysArray' containing objects with 'label' and 'value' properties for each day of the week
-
-  // Step 3: Create a variable called 'schedule' containing an array of the weekdays as strings
-
+  const schedule = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return (
     <View className="flex-row justify-between w-1/2">
-      {/* Step 4: Use the 'map' function to loop through the 'schedule' array and create a TouchableOpacity for each day */}
-      {/* Step 5: Set the background color of the TouchableOpacity based on whether the day is in the 'days' array */}
-      {/* Step 6: Add an 'onPress' event to the TouchableOpacity that calls the 'handleItemSelect' function with the day as an argument */}
+      {schedule.map((day) => (
+        <TouchableOpacity
+          key={day}
+          className={`rounded-md bg-gray-700 px-2 py-1 m-1 ${
+            days.includes(day) ? "bg-purple-400" : ""
+          }`}
+          onPress={() => handleItemSelect(day)}
+        >
+          <Text className="text-white font-semibold">{day}</Text>
+        </TouchableOpacity>
+        // <CheckBox
+        //   style={{ backgroundColor: "red" }}
+        //   key={day.value}
+        //   title={day.label}
+        //   checked={days.includes(day.value)}
+        //   onPress={() => handleItemSelect(day.value)}
+        // />
+      ))}
     </View>
   );
 };

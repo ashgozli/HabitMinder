@@ -7,18 +7,13 @@ import "firebase/compat/firestore";
 import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCTp-Gx5UZSBJKcvkHeIxc2K5N9Aq3ocYg",
-  authDomain: "habittracker-59231.firebaseapp.com",
-  projectId: "habittracker-59231",
-  storageBucket: "habittracker-59231.appspot.com",
-  messagingSenderId: "404079753933",
-  appId: "1:404079753933:web:ce8341748e1949ebfbc784",
-};
+// const firebaseConfig = {
+  
+// };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// step - 3
+
+
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-export { db, auth };
+//step - 4

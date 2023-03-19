@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomNavigator from "./components/BottomNavigator";
@@ -42,32 +42,34 @@ function HeaderTitle({ navigation }) {
 
 export default function App() {
   return (
-    <SafeAreaView style={[styles.container]}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen name="Settings" component={Settings} />
-          <Stack.Screen
-            name="Profile"
-            component={Profile}
-            options={({ navigation }) => {
-              return {
-                header: () => <HeaderTitle navigation={navigation} />,
-              };
-            }}
-          />
-          <Stack.Screen
-            name="Home"
-            component={BottomNavigator}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={[styles.container]}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen name="Settings" component={Settings} />
+            <Stack.Screen
+              name="Profile"
+              component={Profile}
+              options={({ navigation }) => {
+                return {
+                  header: () => <HeaderTitle navigation={navigation} />,
+                };
+              }}
+            />
+            <Stack.Screen
+              name="Home"
+              component={BottomNavigator}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 

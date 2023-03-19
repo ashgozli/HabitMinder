@@ -15,27 +15,38 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import Overview from "./Overview";
 
 function Login() {
-  //Set up the state variables for email and password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigation = useNavigation();
-  // Create a useEffect hook that listens for changes in the authentication state
-  // useEffect(() => {
-  //   ...
-  // }, []);
 
-  // Create functions for handling sign-up and login
-  // const handleSignUp = () => {
-  //   ...
-  // };
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigation.replace("Home");
+      }
+    });
+  }, []);
 
-  // const handleLogin = () => {
-  //   ...
-  // };
+  const handleSignUp = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Registered with:", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
+
+  const handleLogin = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Logged in with:", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <KeyboardAvoidingView
@@ -63,13 +74,11 @@ function Login() {
       </View>
 
       <View style={styles.buttonContainer}>
-
-        <TouchableOpacity onPress={Overview} style={styles.button}>
-          <Text style={styles.buttonText}>Press me to start</Text>
+        <TouchableOpacity onPress={handleLogin} style={styles.button}>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          //Need to login users when
-          onPress={Overview}
+          onPress={handleSignUp}
           style={[styles.button, styles.buttonOutline]}
         >
           <Text style={styles.buttonOutlineText}>Sign Up</Text>

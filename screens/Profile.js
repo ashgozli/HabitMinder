@@ -3,14 +3,17 @@ import React, { useState } from "react";
 import { View, Text, Switch } from "react-native";
 import { Button } from "react-native-elements";
 import { auth } from '../firebase'
-import Login from "./Login";
 
 function Profile({ navigation }) {
   const [isEnabled, setIsEnabled] = useState(false);
-  //need to develope the sign out function for the button to work
-  // const handleSignOut = () => {
-  //   ...
-  // }
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("Login")
+      })
+      .catch(error => alert(error.message))
+  }
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
     <View className="flex-1 items-center px-8 bg-black">
@@ -41,7 +44,7 @@ function Profile({ navigation }) {
       </View>
       <Button
         className="mt-48"
-        //on press the button should sign the user out
+        onPress={handleSignOut}
         title="Log Out"
         buttonStyle={{
           borderColor: "#d04344",

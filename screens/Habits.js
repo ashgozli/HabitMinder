@@ -23,12 +23,33 @@ const Habits = () => {
     selectedDays: [],
   };
   useEffect(() => {
-    //Step - 4 data layer
+    const unsubscribe = onSnapshot(
+      collection(db, "habits"),
+      (querySnapshot) => {
+        const newData = [];
+
+        querySnapshot.forEach((doc) => {
+          newData.push({
+            ...doc.data(),
+            key: doc.id,
+          });
+        });
+        newData.map((item) => {
+          if (item.title) {
+            console.log(item.key);
+          }
+        });
+
+        setData(newData);
+      }
+    );
+
+    return () => unsubscribe();
   }, []);
 
   return (
-    <ScrollView>
-      <View className="flex-1 bg-black">
+    <View className="flex-1 bg-black">
+      <ScrollView>
         <View className="">
           <Text className="font-bold text-[40px] my-2 text-white p-4 px-8">
             Habit Hub
@@ -100,10 +121,22 @@ const Habits = () => {
               goal="Finalize pitch deck"
               backgroundColor="purple"
             />
+            {data.map((item) => {
+              if (item.title) {
+                return (
+                  <HabitListCard
+                    key={item.key}
+                    icon="check"
+                    goal={item.title}
+                    backgroundColor="purple"
+                  />
+                );
+              }
+            })}
           </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 

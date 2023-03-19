@@ -20,17 +20,29 @@ const AddHabits = () => {
   const [days, setDays] = useState([]);
 
   const handleFormSubmit = async () => {
-    // Step 4 - Database {...}
+    console.log("title", title);
+    console.log("startDate", startDate);
+    console.log("endDate", endDate);
+    console.log("selectedDays", days);
+
     const docRef = await addDoc(collection(db, "habits"), {
+      title: title,
+      startDate: startDate,
+      endDate: endDate,
+      selectedDays: days,
     });
-    // Step 4 - Database {...}
+    console.log("Document written with ID: ", docRef.id);
+    setTitle("");
+    setStartDate("");
+    setEndDate("");
+    setDays([]);
   };
 
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   return (
-    <ScrollView>
-      <View className="flex-1 bg-black">
+    <View className="flex-1 bg-black">
+      <ScrollView>
         <View className="mt-2 p-4 px-8">
           <Text className="font-bold text-[40px] text-white">Habits Start</Text>
           <Text className="font-bold text-[40px] text-white">Here.</Text>
@@ -137,8 +149,8 @@ const AddHabits = () => {
             }}
           />
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 

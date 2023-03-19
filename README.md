@@ -4,8 +4,31 @@
 
 This is a habit tracking app that allows users to login/sign up using Firebase Authentication and keep track of their habits using Firestore, a cloud database. Users can add new habits, mark them as complete or incomplete, and track their progress over time.
 
-# Phone Mockup
+# Design Mockups
 
+<table>
+    <tr> <td align="center" colspan=2>Phone Mockup</td></tr>
+    <tr>
+        <td align="center" colspan=2><img src="https://github.com/ashgozli/HabitMinder/blob/main/assets/Group%201%20(1).png" width="600px;" alt="Image 1"/></td>
+    </tr>
+    <tr> 
+        <td align="center">Overview Page</td>
+        <td align="center">Habit Hub</td>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://github.com/ashgozli/HabitMinder/blob/main/assets/IMG_5603%20(2).png" width="300px;" alt="Image 1"/></td>
+        <td align="center"><img src="https://github.com/ashgozli/HabitMinder/blob/main/assets/IMG_5932%20(1).png" width="300px;" alt="Image 1"/></td>
+    </tr>
+    <tr> 
+        <td align="center">Add Habits</td>
+        <td align="center">Profile</td>
+    </tr>
+    <tr>
+        <td align="center"><img src="https://github.com/ashgozli/HabitMinder/blob/main/assets/IMG_5933%20(2).png" width="300px;" alt="Image 1"/></td>
+        <td align="center"><img src="https://github.com/ashgozli/HabitMinder/blob/main/assets/IMG_5932%20(1).png" width="300px;" alt="Image 1"/></td>
+    </tr>
+</table>
+    
 # About the Project
 
 This project was made for educational purposes to serve in a Project Workshop for the Google Developer's Student Club at the University of British Columbia, Vancouver.

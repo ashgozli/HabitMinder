@@ -25,7 +25,7 @@ This is a habit tracking app that allows users to login/sign up using Firebase A
     </tr>
     <tr>
         <td align="center"><img src="https://github.com/ashgozli/HabitMinder/blob/main/assets/IMG_5933%20(2).png" width="300px;" alt="Image 1"/></td>
-        <td align="center"><img src="https://github.com/ashgozli/HabitMinder/blob/main/assets/IMG_5932%20(1).png" width="300px;" alt="Image 1"/></td>
+        <td align="center"><img src="https://github.com/ashgozli/HabitMinder/blob/main/assets/IMG_5973.png" width="300px;" alt="Image 1"/></td>
     </tr>
 </table>
     
